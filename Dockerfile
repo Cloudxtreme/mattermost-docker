@@ -5,6 +5,8 @@ ENV PG_USER=mattermost
 ENV PG_PASS=mattermost
 ENV PG_HOST=postgres
 
+VOLUME /mattermost_data /mattermost/config/config.json
+
 RUN yum install -q -y python-pip && \
     yum -q clean all
 RUN pip -q install supervisor
@@ -19,8 +21,6 @@ COPY ./configs/supervisord.conf /etc/
 COPY ./configs/entrypoint.sh / 
 
 RUN mkdir /mattermost_data
-
-VOLUME /mattermost_data /mattermost/config/config.json
 
 EXPOSE 80
 
