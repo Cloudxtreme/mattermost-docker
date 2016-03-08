@@ -1,11 +1,6 @@
 FROM bbania/centos:base
 MAINTAINER "Bart Bania" <contact@bartbania.com>
 
-ENV PG_USER=mattermost
-ENV PG_PASS=mattermost
-ENV PG_HOST=postgres
-ENV PG_DATA=mattermost
-
 RUN yum install -q -y python-pip && \
     yum -q clean all
 RUN pip -q install supervisor
