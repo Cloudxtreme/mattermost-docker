@@ -31,7 +31,7 @@
     },
     "SqlSettings": {
         "DriverName": "postgres",
-        "DataSource": "postgres://${PG_USER}:${PG_PASS}@${PG_HOST}:5432/${PG_DATA}?sslmode=disable\u0026connect_timeout=10",
+        "DataSource": "postgres://PG_USER:PG_PASS@PG_HOST:5432/PG_DATA?sslmode=disable\u0026connect_timeout=10",
         "DataSourceReplicas": [],
         "MaxIdleConns": 10,
         "MaxOpenConns": 10,
