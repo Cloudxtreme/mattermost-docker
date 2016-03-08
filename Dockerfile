@@ -1,6 +1,7 @@
 FROM bbania/centos:base
 MAINTAINER "Bart Bania" <contact@bartbania.com>
 
+# Install prerequisites
 RUN yum install -q -y python-pip && \
     yum -q clean all
 RUN pip -q install supervisor
@@ -14,10 +15,12 @@ RUN gpg --keyserver pool.sks-keyservers.net --recv-keys B42F6819007F00F88E364FD4
     rm -r /root/.gnupg/ && \
     chmod +x /usr/local/bin/gosu
 
+# Add user
 RUN useradd -m -d /mattermost mattermost
 
 WORKDIR /mattermost
 
+# Download mattermost
 ADD https://github.com/mattermost/platform/releases/download/v2.0.0/mattermost.tar.gz .
 RUN tar -zxf mattermost.tar.gz --strip-components=1 && rm mattermost.tar.gz
 
