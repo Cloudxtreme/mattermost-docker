@@ -21,7 +21,7 @@ RUN useradd -m -d /mattermost mattermost
 WORKDIR /mattermost
 
 # Download mattermost
-ADD https://github.com/mattermost/platform/releases/download/v2.0.0/mattermost.tar.gz .
+COPY ./mattermost.tar.gz .
 RUN tar -zxf mattermost.tar.gz --strip-components=1 && rm mattermost.tar.gz
 
 RUN mkdir -p /mattermost_data/config
